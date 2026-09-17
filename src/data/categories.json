@@ -1,3 +1,9 @@
 {
-  "categories": []
+  "categories": [
+    {
+      "emoji": "📱",
+      "key": "celulares",
+      "label": "Celulares"
+    }
+  ]
 }
