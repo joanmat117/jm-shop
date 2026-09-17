@@ -20,6 +20,13 @@ export const STORE_LOCATION =
 export const STORE_HOURS =
   import.meta.env.PUBLIC_STORE_HOURS || 'Lunes a Domingo: 11am - 8pm';
 
+const localeMap: Record<string, string> = {
+  CUP: 'es-CU',
+  USD: 'en-US',
+  EUR: 'de-DE',
+  // Add more as needed
+};
+
 /**
  *
  */
@@ -89,12 +96,7 @@ export function formatPrice(price: number): string;
 export function formatPrice(price: number, currency: string): string;
 export function formatPrice(price: number, currency?: string): string {
   const cur = currency ?? getDefaultCurrency();
-  const localeMap: Record<string, string> = {
-    CUP: 'es-CU',
-    USD: 'en-US',
-    EUR: 'de-DE',
-    // Add more as needed
-  };
+
   const locale = localeMap[cur] ?? 'en-US';
   return price.toLocaleString(locale, { style: 'currency', currency: cur });
 }
@@ -108,14 +110,14 @@ export function buildWhatsAppMessage(
   );
   const lines = items.map(
     (item) =>
-      `• ${item.name} x${item.quantity} — ${item.price.toLocaleString('es-CU')} CUP`,
+      `• ${item.name} x${item.quantity} — ${formatPrice(item.price)}`,
   );
   const message = [
     '🛒 *Nuevo Pedido*',
     '',
     ...lines,
     '',
-    `*Total: ${total.toLocaleString('es-CU')} CUP*`,
+    `*Total: ${formatPrice(total)}*`,
   ].join('\n');
   return message;
 }
