@@ -4,6 +4,16 @@
       "emoji": "📱",
       "key": "celulares",
       "label": "Celulares"
+    },
+    {
+      "emoji": "🛡",
+      "key": "covers",
+      "label": "Covers"
+    },
+    {
+      "emoji": "🔋",
+      "key": "powerbanks",
+      "label": "Powerbanks"
     }
   ]
 }
