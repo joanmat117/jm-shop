@@ -1,0 +1,15 @@
+{
+  "price": 22,
+  "available": true,
+  "name": "Powerbank Hellee 15,000 mAh",
+  "featured": true,
+  "currency": "USD",
+  "images": [
+    "/images/34591.jpg"
+  ],
+  "categories": [
+    "powerbanks"
+  ],
+  "description": "15000mAh, 45% más pequeño | 50% más de capacidad, paquete de baterías esenciales de viaje delgado, carga rápida",
+  "vip": false
+}
