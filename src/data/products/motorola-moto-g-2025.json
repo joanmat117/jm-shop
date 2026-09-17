@@ -1,0 +1,15 @@
+{
+  "price": 113,
+  "available": true,
+  "name": "Motorola Moto G 2025",
+  "featured": false,
+  "currency": "USD",
+  "images": [
+    "/images/34589.jpg"
+  ],
+  "categories": [
+    "celulares"
+  ],
+  "description": "4gb de ram con 128gb de almacenamiento",
+  "vip": false
+}
