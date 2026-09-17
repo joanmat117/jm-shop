@@ -1,0 +1,15 @@
+{
+  "price": 21,
+  "available": true,
+  "name": "Powerbank Charmast 10,000 mAh",
+  "featured": false,
+  "currency": "USD",
+  "images": [
+    "/images/34590.jpg"
+  ],
+  "categories": [
+    "powerbanks"
+  ],
+  "description": " 10000 mAh, 4 cables integrados, 6 salidas/3 entradas, carga rápida de 3 A, compatible con iPhone, iPad, Samsung, Pixel, LG",
+  "vip": false
+}

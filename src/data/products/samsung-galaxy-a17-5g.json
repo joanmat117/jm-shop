@@ -1,0 +1,15 @@
+{
+  "price": 200,
+  "available": true,
+  "name": "Samsung Galaxy A17 5G",
+  "featured": false,
+  "currency": "USD",
+  "images": [
+    "/images/34586.jpg"
+  ],
+  "categories": [
+    "celulares"
+  ],
+  "description": "128GB 4GB RAM",
+  "vip": false
+}

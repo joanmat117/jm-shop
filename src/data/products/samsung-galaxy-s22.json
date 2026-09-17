@@ -1,0 +1,15 @@
+{
+  "price": 260,
+  "available": true,
+  "name": "Samsung Galaxy S22",
+  "featured": true,
+  "currency": "USD",
+  "images": [
+    "/images/34522.jpg"
+  ],
+  "categories": [
+    "celulares"
+  ],
+  "description": "Pantalla AMOLED 2X de 6.1 pulgadas con resolución Full HD+ y velocidad de actualización de 120 Hz. Procesador de 4 nm y 8 GB de memoria RAM.Almacenamiento de 128 GB (sin ranura para tarjeta microSD)",
+  "vip": false
+}
