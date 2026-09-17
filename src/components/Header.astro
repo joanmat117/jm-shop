@@ -1,0 +1,94 @@
+---
+import BaseLink from './preact/BaseLink';
+import CartToggle from '@/components/preact/CartToggle';
+import MenuToggle from '@/components/preact/MenuToggle';
+import { getCategories } from '@/lib/categories';
+import { resolveUrlFrom } from '@/utils/helpers';
+import Logo from './Logo.astro';
+import MenuSidebar from './preact/MenuSidebar';
+import CartSidebar from './preact/CartSidebar';
+import CartInitializer from './preact/CartInitializer';
+import MenuInitializer from './preact/MenuInitializer';
+import SearchBar from './preact/SearchBar';
+import MobileSearchToggle from './preact/MobileSearchToggle';
+
+interface Props {
+  activeCategory?: string;
+  withSearch?: boolean;
+}
+
+const pn = Astro.url.pathname;
+const { activeCategory = '', withSearch = true } = Astro.props;
+const categories = getCategories();
+---
+
+<MenuInitializer client:load />
+<CartInitializer client:load />
+
+<header
+  class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm"
+>
+  <div class="max-w-7xl mx-auto px-4">
+    <!-- Top bar: Logo + Search + Cart -->
+    <div class="flex items-center justify-between h-16 gap-3">
+      <!-- Logo -->
+      <Logo />
+
+      <!-- Search bar (desktop) -->
+      {
+        withSearch && (
+          <div class="hidden md:flex flex-1 max-w-lg mx-4">
+            <SearchBar client:load />
+          </div>
+        )
+      }
+
+      <!-- Actions -->
+      <div class="flex items-center gap-2">
+        <!-- Cart button -->
+        <CartToggle client:load />
+      </div>
+    </div>
+
+    <!-- Mobile categories nav with hamburger menu -->
+    <div class="flex items-center gap-2 py-3 border-t border-gray-50">
+      <div class="lg:hidden">
+        <MenuToggle client:load />
+      </div>
+      {withSearch && <MobileSearchToggle client:load />}
+      <div class="flex-1 overflow-x-auto hide-scrollbar">
+        <div class="flex gap-2">
+          <BaseLink
+            href={resolveUrlFrom(pn, '/')}
+            class:list={[
+              'shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200',
+              activeCategory === ''
+                ? 'bg-primary-500 text-white shadow-sm'
+                : 'bg-gray-100 text-gray-600 hover:bg-primary-50 hover:text-primary-600',
+            ]}
+          >
+            Todo
+          </BaseLink>
+          {
+            categories.map((cat) => (
+              <BaseLink
+                href={resolveUrlFrom(pn, `/categories/${cat.slug}`)}
+                class:list={[
+                  'shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200',
+                  activeCategory === cat.key
+                    ? 'bg-primary-500 text-white shadow-sm'
+                    : 'bg-gray-100 text-gray-600 hover:bg-primary-50 hover:text-primary-600',
+                ]}
+              >
+                {cat.label}
+              </BaseLink>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<MenuSidebar activeCategory={activeCategory} client:load />
+<CartSidebar client:load />

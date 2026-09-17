@@ -1,0 +1,12 @@
+---
+import CategoryLayout from '@/layouts/CategoryLayout.astro';
+import { getStaticCategoryPaths } from '@/utils/static';
+
+export async function getStaticPaths() {
+  return getStaticCategoryPaths({ withVIP: true });
+}
+
+const { category, products } = Astro.props;
+---
+
+<CategoryLayout products={products} category={category} />

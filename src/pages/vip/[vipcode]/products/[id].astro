@@ -1,0 +1,12 @@
+---
+import ProductLayout from '@/layouts/ProductLayout.astro';
+import { getStaticProductPaths } from '@/utils/static';
+
+export async function getStaticPaths() {
+  return getStaticProductPaths({ withVIP: true });
+}
+
+const { product } = Astro.props;
+---
+
+<ProductLayout product={product} />
